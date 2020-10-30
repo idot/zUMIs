@@ -263,6 +263,8 @@ if [[ "${whichStage}" == "Filtering" ]] ; then
   bash ${zumisdir}/mergeBAM.sh ${zumisdir} ${tmpMerge} ${num_threads} ${project} ${outdir} ${yaml} ${samtoolsexc}
   for i in ${fqfiles} ; do
       pref=$(basename ${i} | sed 's/.fastq.gz//' | sed 's/.fq.gz//')
+      COL=${tmpMerge}${pref}*gz
+      echo "COLLECTEDXXXXXXX: $COL" 
       rm ${tmpMerge}${pref}*gz
   done
   date
