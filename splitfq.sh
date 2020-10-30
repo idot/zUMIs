@@ -18,7 +18,9 @@ function splitfq() {
   pref=`basename $fqfile`
   d=`dirname $fqfile`
   split --lines=$nl --filter=''$pexc' -p '$nthreads' > $FILE.gz' $d/$fqfile $t$pref$project
-
+	echo "SPLITFQ1: $t$pref$project"
+	COL=$t$pref$project*
+	echo "PLITFQ2: $COL"
 	ls $t$pref$project* | sed "s|$t$pref$project||" > $t/$project.listPrefix.txt
 
 	exit 1
